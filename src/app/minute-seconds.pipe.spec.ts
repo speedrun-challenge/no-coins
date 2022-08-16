@@ -1,4 +1,4 @@
-import { MinuteSecondsPipe } from './minute-seconds.pipe';
+import {MinuteSecondsPipe} from './minute-seconds.pipe';
 
 describe('MinuteSecondsPipe', () => {
   it('should convert seconds', () => {
