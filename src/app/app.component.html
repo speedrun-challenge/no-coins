@@ -10,7 +10,7 @@
   </a>
 </div>
 <div class="main-description">
-  <b>Challenge:</b> Get the highest combined "No Coins" times in
+  <b>Challenge:</b> Get the longest "No Coins" runs for both
   <a href="https://www.speedrun.com/subsurf#No_Coins" target="_blank">Subway surfers</a> and
   <a href="https://www.speedrun.com/temple_run_2#No_coins" target="_blank">Temple Run 2</a> until
   September 4th!
@@ -23,8 +23,8 @@
 
 <h2>Participate</h2>
 <p>
-  Participation is free. Once you have registered, you can submit as many runs on the leaderboard as
-  you want until the challenge ends. Your best (longest) runs will be considered for the bounty.
+  Participation is free. Once you have registered, you can submit as many runs on the leaderboards
+  as you want until the challenge ends. Your best (longest) runs will be considered for the bounty.
 </p>
 <div>
   <b>How to participate:</b>
@@ -41,13 +41,15 @@
       on the speedrun.com leaderboards.
     </li>
     <li>
-      The runner(s) with the combined longest runs (see example below) will win the bounty.
+      For each game, all run times will be ranked 1st, 2nd, 3rd etc. The runner(s) with the lowest
+      rank sum (see example below) will win the bounty.
     </li>
   </ol>
 </div>
 <p>
-  Example: A Subway Surfers "No Coins" run of 1:35.200 and a Temple Run 2 "No Coins" run of 1:10.100
-  will result in a combined time of 2:45.300.
+  Example: A Subway Surfers "No Coins" run of 1:35.200 is the 5th best time on the Bounty
+  leaderboard (see below) and a Temple Run 2 "No Coins" run of 1:10.100 is the 8th best time.
+  This gives a rank sum of 5 + 8 = 13. The runner(s) with the lowest rank sum will win the bounty.
 </p>
 
 <h2>Rules</h2>
@@ -68,18 +70,62 @@
     system for security measures. Be aware that it may take 2-3 weeks to evaluate the winner,
     depending on the number of participants.
   </li>
-  <li>Prizes will be paid out via PayPal or wire transfer.</li>
+  <li>Prizes will be paid out via PayPal.</li>
 </ul>
 
 
-<h2>Leaderboard</h2>
-<!--
-- Number of participants
-- last updated datetime
--->
+<h2>Bounty leaderboard</h2>
 <p>
-  Coming soon
+  Number of participants: {{entries.length}}<br>
+  Last update: {{updateTime}} UTC
 </p>
+
+<table mat-table [dataSource]="entries" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> #</th>
+    <td mat-cell *matCellDef="let entry"> {{entry.position}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name</th>
+    <td mat-cell *matCellDef="let entry"> {{entry.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="rank_sum">
+    <th mat-header-cell *matHeaderCellDef> Rank sum</th>
+    <td mat-cell *matCellDef="let entry"> {{entry.rank_sum}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="subsurf_rank">
+    <th mat-header-cell *matHeaderCellDef> Subsurf rank</th>
+    <td mat-cell *matCellDef="let entry"> {{entry.subsurf_rank }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="subsurf_t">
+    <th mat-header-cell *matHeaderCellDef> Subsurf time</th>
+    <td mat-cell *matCellDef="let entry"> {{entry.subsurf_t | minuteSeconds}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tr2_rank">
+    <th mat-header-cell *matHeaderCellDef> TR2 rank</th>
+    <td mat-cell *matCellDef="let entry"> {{entry.tr2_rank}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="tr2_t">
+    <th mat-header-cell *matHeaderCellDef> TR2 time</th>
+    <td mat-cell *matCellDef="let entry"> {{entry.tr2_t | minuteSeconds}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<h2>Sponsors</h2>
+
+Thanks to the prize pool sponsors:
+
+(coming soon)
 
 <h3>Contact</h3>
 <p>
