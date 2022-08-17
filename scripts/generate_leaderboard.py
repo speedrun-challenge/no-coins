@@ -74,9 +74,7 @@ for i in range(len(entries)):
   entry = entries[i]
   if entry['subsurf_t'] != last_value:
     count = i
-    entry['subsurf_rank'] = i + 1
-  else:
-    entry['subsurf_rank'] = count
+  entry['subsurf_rank'] = count + 1
   last_value = entry['subsurf_t']
   entries[i] = entry
 
@@ -86,9 +84,7 @@ for i in range(len(entries)):
   entry = entries[i]
   if entry['tr2_t'] != last_value:
     count = i
-    entry['tr2_rank'] = i + 1
-  else:
-    entry['tr2_rank'] = count
+  entry['tr2_rank'] = count + 1
   last_value = entry['tr2_t']
   entries[i] = entry
 
@@ -103,9 +99,7 @@ for i in range(len(entries)):
   entry = entries[i]
   if entry['rank_sum'] != last_value:
     count = i
-    entry['position'] = i + 1
-  else:
-    entry['position'] = count
+  entry['position'] = count + 1
   last_value = entry['rank_sum']
   entries[i] = entry
 
