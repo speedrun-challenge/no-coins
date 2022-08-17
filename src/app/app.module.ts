@@ -1,5 +1,6 @@
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
+import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import {BrowserModule} from '@angular/platform-browser';
@@ -18,6 +19,7 @@ import {MinuteSecondsPipe} from './minute-seconds.pipe';
     MatTableModule,
     MatSortModule,
     HttpClientModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

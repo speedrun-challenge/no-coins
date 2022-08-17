@@ -40,48 +40,74 @@
         Coins"</a>
       on the speedrun.com leaderboards.
     </li>
-    <li>
-      For each game, the run times (of all participants) will be ranked 1st, 2nd, 3rd etc. The
-      runner(s) with the lowest rank sum (see example below) will win the bounty.
-    </li>
   </ol>
 </div>
-<p>
-  Example: A Subway Surfers "No Coins" run (for example of 1:35.200) is the 5th best time on the
-  Bounty leaderboard (see below) and a Temple Run 2 "No Coins" run (for example of 1:10.100) is the
-  8th best time. This gives a rank sum of 5 + 8 = 13. The runner(s) with the lowest rank sum will
-  win the bounty.
-</p>
+
+<h2>Ranking</h2>
+
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <b>Ranking details</b>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <p>
+    For each game, the run times (of all participants) will be ranked 1st, 2nd, 3rd etc. The
+    runner(s) with the lowest rank sum (see example below) will win the bounty.
+  </p>
+  <p>
+    Example: A Subway Surfers "No Coins" run (for example of 1:35.200) is the 5th best time on
+    the
+    Bounty leaderboard (see below) and a Temple Run 2 "No Coins" run (for example of 1:10.100)
+    is the
+    8th best time. This gives a rank sum of 5 + 8 = 13. The runner(s) with the lowest rank sum
+    will
+    win the bounty.
+  </p>
+</mat-expansion-panel>
 
 <h2>Rules</h2>
-<ul>
-  <li>Only runs submitted before <b>4th of September, 23:59 BRT</b> (= September 5th 02:59 UTC)
-    will be considered.
-  </li>
-  <li>Runs must be submitted to speedrun.com and therefore follow the respective rules of the game
-    categories. Only runners with a run in both games are eligible for the bounty. The runs must be
-    in the respective "No coins" category, and for Subway Surfers, the run must be of type "No
-    hoverboard/keys".
-  </li>
-  <li>
-    Distribution of prize pool: Below $300: 1 winner (100%), between $300-500: 2 winners (70%-30%),
-    Above $500: 3 winners (50%-30%-20%)
-  </li>
-  <li>Winners will be announced publicly and also be contacted directly via the speedrun.com message
-    system for security measures. Be aware that it may take 2-3 weeks to evaluate the winner,
-    depending on the number of participants.
-  </li>
-  <li>Prizes will be paid out via PayPal or bank wire transfer.</li>
-  <li>
-    Cheating in any form may lead to exclusion of the bounty. Depending on the severity, you will
-    also be reported, for example to speedrun.com. Both is at the discretion of the bounty creator.
-  </li>
-</ul>
-
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <b>Rule details</b>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <ul>
+    <li>Only runs submitted before <b>4th of September, 23:59 BRT</b> (= September 5th 02:59
+      UTC)
+      will be considered.
+    </li>
+    <li>Runs must be submitted to speedrun.com and therefore follow the respective rules of the
+      game
+      categories. Only runners with a run in both games are eligible for the bounty. The runs
+      must be
+      in the respective "No coins" category, and for Subway Surfers, the run must be of type "No
+      hoverboard/keys".
+    </li>
+    <li>
+      Distribution of prize pool: Below $300: 1 winner (100%), between $300-500: 2 winners
+      (70%-30%),
+      Above $500: 3 winners (50%-30%-20%)
+    </li>
+    <li>Winners will be announced publicly and also be contacted directly via the speedrun.com
+      message
+      system for security measures. Be aware that it may take 2-3 weeks to evaluate the winner,
+      depending on the number of participants.
+    </li>
+    <li>Prizes will be paid out via PayPal or bank wire transfer.</li>
+    <li>
+      Cheating in any form may lead to exclusion of the bounty. Depending on the severity, you
+      will
+      also be reported, for example to speedrun.com. Both is at the discretion of the bounty
+      creator.
+    </li>
+  </ul>
+</mat-expansion-panel>
 
 <h2>Bounty leaderboard</h2>
 <p>
-  Number of participants: {{entries.length}}<br>
+  Number of participants: {{dataSource.data.length}}<br>
   Last update: {{updateTime}} UTC
 </p>
 
@@ -90,7 +116,7 @@
   show up.
 </p>
 
-<table mat-table [dataSource]="entries" matSort class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
   <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef mat-sort-header> #</th>
     <td mat-cell *matCellDef="let entry"> {{entry.position}} </td>
@@ -112,7 +138,7 @@
   </ng-container>
 
   <ng-container matColumnDef="subsurf_t">
-    <th mat-header-cell *matHeaderCellDef> Subsurf time</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Subsurf time</th>
     <td mat-cell *matCellDef="let entry"> {{entry.subsurf_t | minuteSeconds}} </td>
   </ng-container>
 
@@ -122,7 +148,7 @@
   </ng-container>
 
   <ng-container matColumnDef="tr2_t">
-    <th mat-header-cell *matHeaderCellDef> TR2 time</th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> TR2 time</th>
     <td mat-cell *matCellDef="let entry"> {{entry.tr2_t | minuteSeconds}} </td>
   </ng-container>
 
@@ -144,8 +170,7 @@
 <h3>Thanks</h3>
 
 <p>
-  Special thanks to: VyPr<br>
-  Translation: (coming soon - can you help to translate this page to Brazilian Portuguese?)
+  Special thanks to: VyPr
 </p>
 
 <h3>Contact</h3>
