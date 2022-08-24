@@ -43,14 +43,14 @@ def get_time(username: str) -> Dict:
   return entry
 
 
-###
+############
 
 print('Reading CSV...')
 users = []
 with open('bounty.csv', newline='') as csv_file:
   spam_reader = csv.reader(csv_file, delimiter=',', quotechar='"')
   for row in spam_reader:
-    users.append(row[1])
+    users.append(row[1].strip())
 users = list(set(users[1:]))
 print('Users:', len(users), users)
 
