@@ -11,7 +11,9 @@ from util import is_before_deadline
 
 def get_user_id(username: str) -> str:
   src_url = f'https://www.speedrun.com/api/v1/users/{username}'
-  return json.loads(requests.get(src_url).text)['data']['id']
+  data = json.loads(requests.get(src_url).text)['data']['id']
+  time.sleep(0.65)
+  return data
 
 
 def get_time(username: str) -> Dict:
@@ -20,6 +22,7 @@ def get_time(username: str) -> Dict:
   # Subway Surfers
   subsurf_url = f'https://www.speedrun.com/api/v1/runs?user={user_id}&game=y65797de&category=n2y350ed&status=verified&orderby=submitted&direction=desc'
   runs = json.loads(requests.get(subsurf_url).text)['data']
+  time.sleep(0.65)
 
   # Variable filter: "No hoverboard/keys"
   runs = list(
@@ -34,6 +37,7 @@ def get_time(username: str) -> Dict:
   # Temple Run 2
   tr2_url = f'https://www.speedrun.com/api/v1/runs?user={user_id}&game=m1mky3d2&category=wdmmn84d&status=verified&orderby=submitted&direction=desc'
   runs = json.loads(requests.get(tr2_url).text)['data']
+  time.sleep(0.65)
   runs = list(filter(lambda r: is_before_deadline(r['submitted']), runs))
 
   try:
