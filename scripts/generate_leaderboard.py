@@ -62,9 +62,9 @@ print('Fetching user runs...')
 entries = []
 for username in users:
   try:
+    print('Fetching', username)
     entry = get_time(username)
     entries.append(entry)
-    time.sleep(0.65)
   except:
     print(f' (failed fetching "{username}")')
 print(f'Fetched {len(entries)} user times.')
