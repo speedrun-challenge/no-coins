@@ -9,6 +9,14 @@
     <img src="assets/temple_run2.png" alt="temple run 2">
   </a>
 </div>
+<h1 style="font-weight: bolder">Winner</h1>
+<p style="font-size: x-large; margin-bottom: 60px;">
+  Congratulations to <a href="https://www.speedrun.com/user/rodboy">rodboy</a> for winning the
+  bounty!
+</p>
+
+<hr style="width: 100%;">
+
 <div class="main-description">
   <b>Challenge:</b> Get the longest "No Coins" runs for both
   <a href="https://www.speedrun.com/subsurf#No_Coins" target="_blank">Subway surfers</a> and
@@ -109,16 +117,18 @@
   </ul>
 </mat-expansion-panel>
 
-<h2>Bounty leaderboard</h2>
+<h2>Final bounty leaderboard</h2>
 <p>
   Number of participants: {{dataSource.data.length}}<br>
   Last update: {{updateTime}} UTC
 </p>
 
+<!--
 <p>
   Please note: Only verified runs will be listed, so it may take some time before your times will
   show up.
 </p>
+-->
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
   <ng-container matColumnDef="position">
